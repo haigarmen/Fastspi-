@@ -24,13 +24,13 @@ void readSensor() {
   
   Serial.print("Sorted: ");
   printArray(rangevalue, arraysize);
-  modE = mode(rangevalue, arraysize);
+  mode = getMode(rangevalue, arraysize);
   
   Serial.print("The mode/median is: ");
-  Serial.print(modE);
+  Serial.print(mode);
   Serial.println();
   
-  if (modE <= 200) {            //if subject is within range
+  if (mode <= 200) {            //if subject is within range
     digitalWrite(ledDebugPin, HIGH);  // make light turn on 
   }
   else{
@@ -76,7 +76,7 @@ void iSort(int *a, int n){
 }
 
 //Mode function, returning the mode or median.
-int mode(int *x,int n) {
+int getMode(int *x,int n) {
   
   int i = 0;
   int count = 0;
@@ -86,18 +86,18 @@ int mode(int *x,int n) {
   int prevCount = 0;
   
   while(i < (n - 1)) {
-    prevCount=count;
-    count=0;
+    prevCount = count;
+    count = 0;
     
-    while(x[i]==x[i+1]) {
+    while(x[i] == x[i+1]) {
       count++;
       i++;
     }
     
     if(count > prevCount & count > maxCount) {
-      mode=x[i];
-      maxCount=count;
-      bimodal=0;
+      mode = x[i];
+      maxCount = count;
+      bimodal = 0;
     }
     
     if(count == 0) {
