@@ -18,3 +18,16 @@ Recipes of patterns
 	
 
 Fix Random
+
+
+=====
+
+1) Merge Sensor Into New Code
+
+2) Don't turn off when no reading - timeout
+
+3) Pulse sensor on and off
+
+//
+
+4) Monsoon Season
