@@ -39,7 +39,7 @@ long pulse;
 int modE;
 
 long sonarMillis = 0;
-long stepTime = 0;
+long sonarTime = 0;
 
 // LEDS
 struct CRGB { 
