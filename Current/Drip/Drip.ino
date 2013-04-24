@@ -38,6 +38,9 @@ int rangevalue[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 long pulse;
 int modE;
 
+long sonarMillis = 0;
+long stepTime = 0;
+
 // LEDS
 struct CRGB { 
   unsigned char r; 
