@@ -21,7 +21,7 @@ void setup() {
   
   // Sensor
   pinMode(configPin, OUTPUT);
-  pinMode(led, OUTPUT);
+  pinMode(ledDebugPin, OUTPUT);
   pinMode(pwPin, INPUT);
   
   // Let's Catch Our Breath

@@ -24,7 +24,7 @@ Fix Random
 
 1) Merge Sensor Into New Code
 
-2) Don't turn off when no reading - timeout
+2) Don't turn off when not reading - timeout
 
 3) Pulse sensor on and off
 

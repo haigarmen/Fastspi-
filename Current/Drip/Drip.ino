@@ -23,15 +23,20 @@
 
 // SERIAL
 int outputPin = 4;
-const int sensorPin = 5;
-long value = 0;
-int cm = 0;
-int inches = 0;
+int ledDebugPin = 13;
 
 // SONAR
 const int pwPin = 4;
 int configPin = 3;
+
+long value = 0;
+int cm = 0;
+int inches = 0;
+
 int arraysize = 9;
+int rangevalue[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+long pulse;
+int modE;
 
 // LEDS
 struct CRGB { 
