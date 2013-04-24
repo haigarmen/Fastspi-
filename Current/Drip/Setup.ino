@@ -18,5 +18,13 @@ void setup() {
 
   // Serial Begin
   Serial.begin(9600);
+  
+  // Sensor
+  pinMode(configPin, OUTPUT);
+  pinMode(led, OUTPUT);
+  pinMode(pwPin, INPUT);
+  
+  // Let's Catch Our Breath
+  delay(500);
 
 } /* END OF SETUP */
