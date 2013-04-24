@@ -36,26 +36,32 @@ void setup() {
 
 
 void loop() {
+  
   currentMillis = millis();
   digitalWrite(configPin, HIGH);//raise the reset pinn high
   delay(120);                   //start of calibration ring
 
   pinMode(pwPin, INPUT);
+  
   for(int i = 0; i < arraysize; i++)
   {								    
     pulse = pulseIn(pwPin, HIGH);
     rangevalue[i] = pulse/58;
     delay(10);
   }
+  
   Serial.print("Unsorted: ");
   printArray(rangevalue,arraysize);
   isort(rangevalue,arraysize);
+  
   Serial.print("Sorted: ");
   printArray(rangevalue,arraysize);
   modE = mode(rangevalue,arraysize);
+  
   Serial.print("The mode/median is: ");
   Serial.print(modE);
   Serial.println();
+  
   if (modE <= 200) {            //if subject is within range
     digitalWrite(led, HIGH);  // make light turn on 
   }
@@ -63,8 +69,7 @@ void loop() {
     if(currentMillis - stepTime >= 0){ //this timer isn't working yet
       Serial.println("currentMillis =");
       Serial.println(currentMillis);
-    
-    digitalWrite(led, LOW);   //or else, leave light off
+      digitalWrite(led, LOW);   //or else, leave light off
     }
     stepTime = currentMillis;
     Serial.println("stepTime = ");
@@ -73,7 +78,8 @@ void loop() {
 
   digitalWrite(configPin, LOW);   //turn off Calibration ring and sensor
   Serial.println("configPin LOW");  
-  delay(500);                     //set delay time for sensor to remain off
+  delay(500);    //set delay time for sensor to remain off
+  
 }
 /*-----------Functions------------*///Function to print the arrays.
 void printArray(int *a, int n) {
