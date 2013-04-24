@@ -1,10 +1,9 @@
 /* 
  
- by Robert Werner
- floatingbob@icloud.com
+ by Robert Werner | Jesse Scott | Haig Armen
+ Emily Carr University of Art + Design
  
- This sketch allows you to drive a strand of LEDs with a TM1009 chip. These
- LEDs currently drive from one pin, into LEDs that are hooked up in series. 
+ 21 Umbrellas
  
  
  */
@@ -28,6 +27,11 @@ const int sensorPin = 5;
 long value = 0;
 int cm = 0;
 int inches = 0;
+
+// SONAR
+const int pwPin = 4;
+int configPin = 3;
+int arraysize = 9;
 
 // LEDS
 struct CRGB { 
