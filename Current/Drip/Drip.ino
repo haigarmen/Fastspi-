@@ -36,7 +36,7 @@ int inches = 0;
 int arraysize = 9;
 int rangevalue[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 long pulse;
-int modE;
+int mode;
 
 long sonarMillis = 0;
 long sonarTime = 0;
