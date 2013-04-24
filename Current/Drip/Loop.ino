@@ -8,6 +8,7 @@ void loop() {
   int maX = 35;          
   int miN = 1;
 
+  // Loop Through The Strands
   for(int i = 0; i < numStrands; i++) {
       
       // Set Random Speed
