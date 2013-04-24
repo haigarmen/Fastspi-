@@ -1,7 +1,26 @@
 
 //---------------------------------------------------------------//
-// RESET
+// STRANDS
 
+// Loop Through Our Strands
+void loopStrands() {
+    // Iterate
+    for(int i = 0; i < numStrands; i++) {
+      // Set Random Speed
+      speed[i] = random(blinkSpeed[miN],blinkSpeed[maX]);
+
+      // Reset Current Millisecond
+      currentMillis[i] = millis();
+      
+      for(int k = 0; k < strandLength; k++) {   
+        // Check & Reset LED Strand
+        resetStrand(k, i);
+      }
+  } 
+  
+}
+
+// Reset + Light Our Strands
 void resetStrand(int k, int i) {
 
     // If We Reach The End Of The Strand, Reset
@@ -34,6 +53,5 @@ void resetStrand(int k, int i) {
       // Reset Our Timer
       stepTime[i] = currentMillis[i];
     }
- 
   
 }
