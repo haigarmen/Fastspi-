@@ -5,12 +5,15 @@
 void loop() {
   
   // Test Sensor
-  readSensor();
+  if(millis() % 500 == 0) {
+    Serial.print("Time...  \n");
+    readSensor();
+  }
   
   // Loop Through The Strands
   if(inRange) {
     Serial.print("We're In Range...  \n");
-    //loopStrands();
+    loopStrands();
     Serial.println("-------------\n"); 
   }
   
