@@ -26,7 +26,7 @@ int outputPin = 4;
 int ledDebugPin = 13;
 
 // SONAR
-const int pwPin = 4;
+const int pwPin = 5;
 int configPin = 3;
 
 long value = 0;
