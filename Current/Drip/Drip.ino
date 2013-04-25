@@ -1,6 +1,7 @@
 /* 
  
  by Robert Werner | Jesse Scott | Haig Armen
+ 
  Emily Carr University of Art + Design
  
  21 Umbrellas
@@ -26,8 +27,8 @@ int ledDebugPin = 13;
 const int pwPin = 5;
 int configPin = 3;
 
-long targetMin = 1;
-long targetMax = 200;
+long targetMin = 20;
+long targetMax = 100;
 long value = 0;
 int cm = 0;
 int inches = 0;
