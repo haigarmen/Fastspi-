@@ -6,15 +6,13 @@ void loop() {
   
   // Test Sensor
   if(millis() % 500 == 0) {
-    Serial.print("Time...  \n");
+    Serial.println("Let's Read Our Sensor...");
     readSensor();
   }
   
   // Loop Through The Strands
   if(inRange) {
-    Serial.print("We're In Range...  \n");
     loopStrands();
-    Serial.println("-------------\n"); 
   }
   
   // Light Them LEDs !!!
