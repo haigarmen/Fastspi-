@@ -18,8 +18,13 @@ void setup() {
 
   // Serial Begin
   Serial.begin(9600);
-
-  // 
-  randomSeed(analogRead(0));
+  
+  // Sensor
+  pinMode(configPin, OUTPUT);
+  pinMode(ledDebugPin, OUTPUT);
+  pinMode(pwPin, INPUT);
+  
+  // Let's Catch Our Breath
+  delay(500);
 
 } /* END OF SETUP */

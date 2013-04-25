@@ -4,28 +4,17 @@
 
 void loop() {
   
-  // Blink Min/Max
-  int maX = 35;          
-  int miN = 1;
-
-
-  // #FTW
-  for(int i = 0; i <= numStrands; i++) {
-    
-    // Delay
-    randomizer[i] = delayLED[i] + random(1, 100);
-    
-    // Set Random Speed
-    speed[i] = random(blinkSpeed[miN],blinkSpeed[maX]);
-    
-    // Reset Current Millisecond
-    currentMillis[i] = millis();
-    
-    // Check & Reset LED Strand
-    resetStrand(i);
-    
-  } 
-
+  // Test Sensor
+  if(millis() % 500 == 0) {
+    Serial.println("Let's Read Our Sensor...");
+    readSensor();
+  }
+  
+  // Loop Through The Strands
+  if(inRange) {
+    loopStrands();
+  }
+  
   // Light Them LEDs !!!
   FastSPI_LED.show();
 
