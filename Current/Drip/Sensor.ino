@@ -10,7 +10,7 @@ void readSensor() {
   digitalWrite(configPin, HIGH);//raise the reset pinn high
   delay(120);                   //start of calibration ring
 
-  //pinMode(pwPin, INPUT);
+  pinMode(pwPin, INPUT);
   
   for(int i = 0; i < arraysize; i++) {								    
     pulse = pulseIn(pwPin, HIGH);
@@ -37,13 +37,13 @@ void readSensor() {
   else{
     inRange = false;
     if(sonarMillis - sonarTime >= 0){ //this timer isn't working yet
-      Serial.println("currentMillis =");
-      Serial.println(sonarMillis);
+      //Serial.println("currentMillis =");
+      //Serial.println(sonarMillis);
       digitalWrite(ledDebugPin, LOW);   //or else, leave light off
     }
     sonarTime = sonarMillis;
-    Serial.println("sonarTime = ");
-    Serial.println( sonarTime);
+    //Serial.println("sonarTime = ");
+    //Serial.println( sonarTime);
   }
 
   digitalWrite(configPin, LOW);   //turn off Calibration ring and sensor
