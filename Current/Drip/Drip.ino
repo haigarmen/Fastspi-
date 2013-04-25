@@ -27,8 +27,8 @@ int ledDebugPin = 13;
 const int pwPin = 5;
 int configPin = 3;
 
-long targetMin = 20;
-long targetMax = 100;
+long targetMin = 150;
+long targetMax = 200;
 
 
 int arraysize = 9;
