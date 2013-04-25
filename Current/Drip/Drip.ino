@@ -29,9 +29,7 @@ int configPin = 3;
 
 long targetMin = 20;
 long targetMax = 100;
-long value = 0;
-int cm = 0;
-int inches = 0;
+
 
 int arraysize = 9;
 int rangevalue[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -39,6 +37,7 @@ long pulse;
 int mode;
 
 boolean inRange = false;
+boolean currentlyPlaying = false;
 
 long sonarMillis = 0;
 long sonarTime = 0;

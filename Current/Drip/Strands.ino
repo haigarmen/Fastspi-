@@ -40,9 +40,17 @@ void resetStrand(int k, int i) {
       LEDsections[i]++;
   
       // Go Back To The Beginning
-      if(LEDsections[i] == endLED[i]){
-        LEDsections[i] = startLED[i];
-        timer[i] = speed[i];
+      if(LEDsections[i] == endLED[i]) {
+        // Are We Still Getting A Reading ?
+        if(inRange) {
+          LEDsections[i] = startLED[i];
+          timer[i] = speed[i];
+        }
+        else {
+          leds[LEDsections[i]].r = 0;
+          leds[LEDsections[i]].g = 0;
+          leds[LEDsections[i]].b = 0;
+        }
       }
   
       // Turn The LEDs White

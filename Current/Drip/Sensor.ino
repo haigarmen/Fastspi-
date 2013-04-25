@@ -9,7 +9,7 @@ void readSensor() {
   sonarMillis = millis();
   digitalWrite(configPin, HIGH);
   Serial.println("Turning Sensor On"); 
-  delay(120); //start of calibration ring
+  //delay(120); //start of calibration ring
 
   pinMode(pwPin, INPUT);
   
@@ -32,17 +32,18 @@ void readSensor() {
   Serial.println();
   
   // If We Are Within Range
-  if (mode <= targetMax && mode >= targetMin) {            
+  if (mode <= targetMax && mode >= targetMin) {    
+    Serial.println("We See You... ");    
     inRange = true;
   }
   else{
+    Serial.println("Nothing To See Here... ");
     inRange = false;
   }
 
   digitalWrite(configPin, LOW); 
   Serial.println("Turning Sensor Off"); 
   Serial.println("-------------\n"); 
-  //delay(500);  
   
 }
 
