@@ -10,7 +10,7 @@ void readSensor() {
   digitalWrite(configPin, HIGH);//raise the reset pinn high
   delay(120);                   //start of calibration ring
 
-  pinMode(pwPin, INPUT);
+  //pinMode(pwPin, INPUT);
   
   for(int i = 0; i < arraysize; i++) {								    
     pulse = pulseIn(pwPin, HIGH);
@@ -24,17 +24,19 @@ void readSensor() {
   
   Serial.print("Sorted: ");
   printArray(rangevalue, arraysize);
-  mode = getMode(rangevalue, arraysize);
   
   Serial.print("The mode/median is: ");
+  mode = getMode(rangevalue, arraysize);
   Serial.print(mode);
   Serial.println();
   
-  if (mode <= 200) {            //if subject is within range
+  if (mode <= targetMax && mode >= targetMin) {            //if subject is within range
     digitalWrite(ledDebugPin, HIGH);  // make light turn on 
+    inRange = true;
   }
   else{
-    if(currentMillis - sonarTime >= 0){ //this timer isn't working yet
+    inRange = false;
+    if(sonarMillis - sonarTime >= 0){ //this timer isn't working yet
       Serial.println("currentMillis =");
       Serial.println(sonarMillis);
       digitalWrite(ledDebugPin, LOW);   //or else, leave light off
@@ -45,7 +47,8 @@ void readSensor() {
   }
 
   digitalWrite(configPin, LOW);   //turn off Calibration ring and sensor
-  Serial.println("configPin LOW");  
+  Serial.println("configPin LOW"); 
+  Serial.println("-------------\n"); 
   delay(500);    //set delay time for sensor to remain off
   
 }
@@ -76,7 +79,7 @@ void iSort(int *a, int n){
 }
 
 //Mode function, returning the mode or median.
-int getMode(int *x,int n) {
+int getMode(int *x, int n) {
   
   int i = 0;
   int count = 0;
