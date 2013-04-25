@@ -9,8 +9,9 @@ void loop() {
   
   // Loop Through The Strands
   if(inRange) {
-    Serial.print("We're In Range...  ");
-    loopStrands();
+    Serial.print("We're In Range...  \n");
+    //loopStrands();
+    Serial.println("-------------\n"); 
   }
   
   // Light Them LEDs !!!
