@@ -8,8 +8,11 @@ void loop() {
   readSensor();
   
   // Loop Through The Strands
-  loopStrands();
-
+  if(inRange) {
+    Serial.print("We're In Range...  ");
+    loopStrands();
+  }
+  
   // Light Them LEDs !!!
   FastSPI_LED.show();
 
