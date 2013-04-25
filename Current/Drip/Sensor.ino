@@ -7,8 +7,9 @@
 void readSensor() {
   
   sonarMillis = millis();
-  digitalWrite(configPin, HIGH);//raise the reset pinn high
-  delay(120);                   //start of calibration ring
+  digitalWrite(configPin, HIGH);
+  Serial.println("Turning Sensor On"); 
+  delay(120); //start of calibration ring
 
   pinMode(pwPin, INPUT);
   
@@ -30,26 +31,18 @@ void readSensor() {
   Serial.print(mode);
   Serial.println();
   
-  if (mode <= targetMax && mode >= targetMin) {            //if subject is within range
-    digitalWrite(ledDebugPin, HIGH);  // make light turn on 
+  // If We Are Within Range
+  if (mode <= targetMax && mode >= targetMin) {            
     inRange = true;
   }
   else{
     inRange = false;
-    if(sonarMillis - sonarTime >= 0){ //this timer isn't working yet
-      //Serial.println("currentMillis =");
-      //Serial.println(sonarMillis);
-      digitalWrite(ledDebugPin, LOW);   //or else, leave light off
-    }
-    sonarTime = sonarMillis;
-    //Serial.println("sonarTime = ");
-    //Serial.println( sonarTime);
   }
 
-  digitalWrite(configPin, LOW);   //turn off Calibration ring and sensor
-  Serial.println("configPin LOW"); 
+  digitalWrite(configPin, LOW); 
+  Serial.println("Turning Sensor Off"); 
   Serial.println("-------------\n"); 
-  delay(500);    //set delay time for sensor to remain off
+  //delay(500);  
   
 }
 
