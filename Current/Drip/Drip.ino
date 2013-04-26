@@ -27,9 +27,8 @@ int ledDebugPin = 13;
 const int pwPin = 5;
 int configPin = 3;
 
-long targetMin = 20;
-long targetMax = 100;
-
+long targetMin = 150;
+long targetMax = 200;
 
 int arraysize = 9;
 int rangevalue[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -41,6 +40,7 @@ boolean currentlyPlaying = false;
 
 long sonarMillis = 0;
 long sonarTime = 0;
+long sonarInterval;
 
 // LEDS
 struct CRGB { 

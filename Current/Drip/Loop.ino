@@ -5,7 +5,7 @@
 void loop() {
   
   // Test Sensor
-  if(millis() % 500 == 0) {
+  if(millis() % 2000 == 0) {
     Serial.println("Let's Read Our Sensor...");
     readSensor();
   }
