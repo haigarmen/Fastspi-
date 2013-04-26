@@ -41,6 +41,8 @@ boolean currentlyPlaying = false;
 
 long sonarMillis = 0;
 long sonarTime = 0;
+long sonarInterval;
+
 
 // LEDS
 struct CRGB { 
