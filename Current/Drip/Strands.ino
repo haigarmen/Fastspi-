@@ -40,6 +40,10 @@ void loopStrands() {
       }
       // Turn This Strand Off
       strandPlaying[i] = false;
+      // Turn The LEDs Black
+      leds[LEDsections[i]].r = 0;
+      leds[LEDsections[i]].g = 0;
+      leds[LEDsections[i]].b = 0;
     } 
     
   }
@@ -59,6 +63,10 @@ void lightStrand(int k, int i) {
     // If We Reach The End Of The Strand, Reset
     if (k >= endLED[i]){    
       timer[i] = speed[i];
+      // Turn The LEDs Black
+      leds[LEDsections[i]].r = 0;
+      leds[LEDsections[i]].g = 0;
+      leds[LEDsections[i]].b = 0;
     } 
     
     // Is Our Timer Ready To Switch ?? 
@@ -75,16 +83,22 @@ void lightStrand(int k, int i) {
       // Go Back To The Beginning
       if(LEDsections[i] == endLED[i]) {
         //if(debug) Serial.println("LED == END...");
+        // Turn The LEDs Black
+        leds[LEDsections[i]].r = 0;
+        leds[LEDsections[i]].g = 0;
+        leds[LEDsections[i]].b = 0;
         LEDsections[i] = startLED[i];
         timer[i] = speed[i];
         timesLooped[i]++;
       }
-  
-      // Turn The LEDs White
-      leds[LEDsections[i]].r = 255;
-      leds[LEDsections[i]].g = 255;
-      leds[LEDsections[i]].b = 255;
-  
+      
+      if(strandPlaying[i] == true) {
+        // Turn The LEDs White
+        leds[LEDsections[i]].r = 255;
+        leds[LEDsections[i]].g = 255;
+        leds[LEDsections[i]].b = 255;
+      }
+      
       // Reset Our Timer
       stepTime[i] = currentMillis[i];
     }
@@ -99,6 +113,10 @@ void resetStrands() {
     strandPlaying[i] = false;
     // Reset Our Loop Count
     timesLooped[i] = 0;
+    // Turn The LEDs Black
+    leds[LEDsections[i]].r = 0;
+    leds[LEDsections[i]].g = 0;
+    leds[LEDsections[i]].b = 0;
   }
   // Broadcast That We're Not Playing Anymore
   currentlyPlaying = false; 
