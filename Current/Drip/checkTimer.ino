@@ -4,8 +4,8 @@
 
 boolean checkTimer() {
   if( millis() >= sonarMillis + sonarInterval ) {
-    return true;
     sonarMillis = millis();
+    return true;
   }
   else {
     return false;

@@ -5,15 +5,13 @@
 void loop() {
   
   // Test Sensor
-  if(millis() % 2000 == 0) {
+  if(checkTimer()) {
     Serial.println("Let's Read Our Sensor...");
     readSensor();
   }
   
   // Loop Through The Strands
-  if(inRange) {
-    loopStrands();
-  }
+  loopStrands();
   
   // Light Them LEDs !!!
   FastSPI_LED.show();

@@ -4,10 +4,9 @@
 
 // Loop Through Our Strands
 void loopStrands() {
-    // Iterate
-    currentlyPlaying = true;
-    // Serial.println("currentlyPlaying ON" );
-
+  // We're Playing Here
+  currentlyPlaying = true;
+  
     for(int i = 0; i < numStrands; i++) {
       // Set Random Speed
       speed[i] = random(blinkSpeed[miN],blinkSpeed[maX]);
@@ -19,8 +18,8 @@ void loopStrands() {
         // Check & Reset LED Strand
         resetStrand(k, i);
       }
-  }
-     currentlyPlaying = false; 
+    }
+    
 }
 
 // Reset + Light Our Strands
@@ -44,16 +43,17 @@ void resetStrand(int k, int i) {
   
       // Go Back To The Beginning
       if(LEDsections[i] == endLED[i]) {
+        
+        //LEDsections[i] = startLED[i];
+        //timer[i] = speed[i];
+        
         // Are We Still Getting A Reading ?
-        if(inRange) {
+        //if(inRange) {
           LEDsections[i] = startLED[i];
           timer[i] = speed[i];
-        }
-        else {
-          leds[LEDsections[i]].r = 0;
-          leds[LEDsections[i]].g = 0;
-          leds[LEDsections[i]].b = 0;
-        }
+        //}
+   
+        
       }
   
       // Turn The LEDs White
