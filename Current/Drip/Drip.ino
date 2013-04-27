@@ -6,9 +6,7 @@
  
  21 Umbrellas
  
- 
  */
-
 
 //---------------------------------------------------------------//
 // VARIABLES
@@ -27,11 +25,11 @@ int ledDebugPin = 13;
 const int pwPin = 5;
 int configPin = 3;
 
-long targetMin = 150;
-long targetMax = 200;
+long targetMin = 130;
+long targetMax = 230;
 
-int arraysize = 9;
-int rangevalue[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+int arraysize = 3;
+int rangevalue[] = {0, 0, 0};
 long pulse;
 int mode;
 
@@ -40,7 +38,7 @@ boolean currentlyPlaying = false;
 
 long sonarMillis = 0;
 long sonarTime = 0;
-long sonarInterval;
+long sonarInterval = 2000;
 
 // LEDS
 struct CRGB { 
@@ -61,7 +59,8 @@ unsigned long strandLength = 18;
 // Individual Timer For Each Strand
 unsigned long currentMillis[8] = {0,0,0,0,0,0,0,0}; 
 
-unsigned long stepTime[8] = {0,0,0,0,0,0,0,0}; //step time clock restarter strands 1-4
+// Step time clock restarts strands
+unsigned long stepTime[8] = {0,0,0,0,0,0,0,0}; 
 
 // Individual Timer For Each Strand
 int timer[8] = {0,0,0,0,0,0,0,0}; 
