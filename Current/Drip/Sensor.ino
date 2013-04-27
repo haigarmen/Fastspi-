@@ -18,7 +18,7 @@ void readSensor() {
   iSort(rangevalue, arraysize);
   mode = getMode(rangevalue, arraysize);
   
-  if(debug == true) {
+  if(debug) {
     Serial.print("The mode/median is: ");
     Serial.print(mode);
     Serial.println();
@@ -76,32 +76,35 @@ int getMode(int *x, int n) {
   while(i < (n - 1)) {
     prevCount = count;
     count = 0;
-    
     while(x[i] == x[i+1]) {
       count++;
       i++;
     }
-    
     if(count > prevCount & count > maxCount) {
       mode = x[i];
       maxCount = count;
       bimodal = 0;
     }
-    
     if(count == 0) {
       i++;
     }
-    
     if(count == maxCount) { //If the dataset has 2 or more modes.
       bimodal = 1;
     }
-    
     if(mode == 0 || bimodal == 1) { //Return the median if there is no mode.
       mode = x[(n/2)];
     }
-    
     return mode;
   }
-  
+}
+
+// Get Average Reading
+int getAvg(int x, int n) {
+  int total = 0;
+  for(int i = 0; i < n; i++) {
+    total += n;
+  }
+  total = total/n;
+  return total;
 }
 
