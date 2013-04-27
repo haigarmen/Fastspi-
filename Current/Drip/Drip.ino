@@ -41,10 +41,10 @@ boolean inRange = false;
 boolean currentlyPlaying = false;
 int timesToLoop = 4;
 int timesLooped[8] = {0,0,0,0,0,0,0,0};
-boolean strandPlaying[8] = {false, false, false, false, false, false, false, false};
+boolean strandPlaying[8] = {true, false, false, false, false, false, false, false};
 
 long sonarMillis = 0;
-long sonarInterval = 2000;
+long sonarInterval = 1000;
 
 // LEDS
 struct CRGB { 
