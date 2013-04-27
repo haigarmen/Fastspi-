@@ -21,7 +21,6 @@ void loop() {
     currentlyPlaying = true;
   
     // Start Our Animation
-    //startRain();
     loopStrands();
   }
   
