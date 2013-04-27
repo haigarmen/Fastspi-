@@ -34,7 +34,7 @@ void readSensor() {
 
   // Turn Our Pin Off
   digitalWrite(configPin, LOW); 
-  Serial.println("-------------\n"); 
+  if(debug) Serial.println("-------------\n"); 
   
 }
 

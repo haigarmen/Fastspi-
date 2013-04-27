@@ -40,7 +40,6 @@ boolean inRange = false;
 
 boolean currentlyPlaying = false;
 int timesToLoop = 4;
-int totalTimesLooped = 0;
 int timesLooped[8] = {0,0,0,0,0,0,0,0};
 boolean strandPlaying[8] = {false, false, false, false, false, false, false, false};
 
