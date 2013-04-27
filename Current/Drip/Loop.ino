@@ -14,12 +14,13 @@ void loop() {
   }
   
   // Loop Through The Strands
-  if(inRange && !currentlyPlaying) {
+  if(inRange /*&& !currentlyPlaying*/) {
     
     if(debug) Serial.println("Let's Light Those LEDs...");
     
     // Start Our Animation
-    startRain();
+    //startRain();
+    loopStrands();
   }
   
   // Light Them LEDs !!!
