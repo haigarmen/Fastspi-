@@ -11,6 +11,9 @@
 //---------------------------------------------------------------//
 // VARIABLES
 
+// Debug
+boolean debug = true;
+
 // INCLUDES  
 #include <FastSPI_LED.h>
 
@@ -25,8 +28,8 @@ int ledDebugPin = 13;
 const int pwPin = 5;
 int configPin = 3;
 
-long targetMin = 130;
-long targetMax = 230;
+long targetMin = 30;
+long targetMax = 130;
 
 int arraysize = 3;
 int rangevalue[] = {0, 0, 0};
@@ -35,6 +38,8 @@ int mode;
 
 boolean inRange = false;
 boolean currentlyPlaying = false;
+int timesToLoop = 4;
+int timesLooped = 0;
 
 long sonarMillis = 0;
 long sonarTime = 0;

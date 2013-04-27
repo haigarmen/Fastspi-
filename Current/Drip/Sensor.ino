@@ -2,48 +2,39 @@
 //---------------------------------------------------------------//
 // SENSOR FUNCTIONS
 
-
-// Time + Test Our Sensor
+// Test Our Sensor
 void readSensor() {
   
   // Turn Our Pin On
   digitalWrite(configPin, HIGH);
-  //Serial.println("Turning Sensor On"); 
-  //delay(120); //start of calibration ring
 
   // Poll Our Pin & Get Our Values
   pinMode(pwPin, INPUT);
   for(int i = 0; i < arraysize; i++) {								    
     pulse = pulseIn(pwPin, HIGH);
     rangevalue[i] = pulse/58;
-    //delay(10);
   }
   
-  //Serial.print("Unsorted: ");
-  //printArray(rangevalue, arraysize);
   iSort(rangevalue, arraysize);
-  
-  //Serial.print("Sorted: ");
-  //printArray(rangevalue, arraysize);
-  
-  //Serial.print("The mode/median is: ");
   mode = getMode(rangevalue, arraysize);
-  //Serial.print(mode);
-  //Serial.println();
+  
+  if(debug == true) {
+    Serial.print("The mode/median is: ");
+    Serial.print(mode);
+    Serial.println();
+  }
   
   // If We Are Within Range
   if (mode <= targetMax && mode >= targetMin) {    
-    //Serial.println("We See You... ");    
     inRange = true;
   }
   else{
-    //Serial.println("Nothing To See Here... ");
     inRange = false;
   }
 
   // Turn Our Pin Off
   digitalWrite(configPin, LOW); 
-  //Serial.println("-------------\n"); 
+  Serial.println("-------------\n"); 
   
 }
 

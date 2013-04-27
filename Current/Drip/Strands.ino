@@ -2,11 +2,27 @@
 //---------------------------------------------------------------//
 // STRANDS
 
+void startRain() {
+
+  if(timesLooped < timesToLoop) {
+    // Start the Playing
+    currentlyPlaying = true;
+    // Loop 
+    loopStrands(); 
+  }
+  else {
+    // Stop The Playing
+    currentlyPlaying = false;
+    // Reser Our Counter
+    timesLooped = 0;
+  }
+  
+  
+}
+
 // Loop Through Our Strands
 void loopStrands() {
-  // We're Playing Here
-  currentlyPlaying = true;
-  
+
     for(int i = 0; i < numStrands; i++) {
       // Set Random Speed
       speed[i] = random(blinkSpeed[miN],blinkSpeed[maX]);
@@ -16,14 +32,17 @@ void loopStrands() {
       
       for(int k = 0; k < strandLength; k++) {   
         // Check & Reset LED Strand
-        resetStrand(k, i);
+        lightStrand(k, i);
       }
     }
+    
+    // Increase Our Counter
+    timesLooped++;
     
 }
 
 // Reset + Light Our Strands
-void resetStrand(int k, int i) {
+void lightStrand(int k, int i) {
 
     // If We Reach The End Of The Strand, Reset
     if (k >= endLED[i]){       
@@ -43,17 +62,8 @@ void resetStrand(int k, int i) {
   
       // Go Back To The Beginning
       if(LEDsections[i] == endLED[i]) {
-        
-        //LEDsections[i] = startLED[i];
-        //timer[i] = speed[i];
-        
-        // Are We Still Getting A Reading ?
-        //if(inRange) {
-          LEDsections[i] = startLED[i];
-          timer[i] = speed[i];
-        //}
-   
-        
+        LEDsections[i] = startLED[i];
+        timer[i] = speed[i];
       }
   
       // Turn The LEDs White
