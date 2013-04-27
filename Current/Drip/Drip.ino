@@ -12,7 +12,7 @@
 // VARIABLES
 
 // Debug
-boolean debug = true;
+boolean debug = false;
 
 // INCLUDES  
 #include <FastSPI_LED.h>
