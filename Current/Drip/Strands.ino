@@ -16,7 +16,7 @@ void loopStrands() {
     // If We Still Have A Loop Left...
     if(timesLooped[i] < timesToLoop) {
       // Set Random Speed
-      speed[i] = random(blinkSpeed[miN],blinkSpeed[maX]);
+      speed[i] = random(minSpeed, maxSpeed);
       // Reset Current Millisecond
       currentMillis[i] = millis();
       // Turn This Strand On
