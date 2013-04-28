@@ -2,48 +2,39 @@
 //---------------------------------------------------------------//
 // SENSOR FUNCTIONS
 
-
-// Time + Test Our Sensor
+// Test Our Sensor
 void readSensor() {
   
-  sonarMillis = millis();
+  // Turn Our Pin On
   digitalWrite(configPin, HIGH);
-  Serial.println("Turning Sensor On"); 
-  //delay(120); //start of calibration ring
 
+  // Poll Our Pin & Get Our Values
   pinMode(pwPin, INPUT);
-  
   for(int i = 0; i < arraysize; i++) {								    
     pulse = pulseIn(pwPin, HIGH);
     rangevalue[i] = pulse/58;
-    delay(10);
   }
   
-  Serial.print("Unsorted: ");
-  printArray(rangevalue, arraysize);
   iSort(rangevalue, arraysize);
-  
-  Serial.print("Sorted: ");
-  printArray(rangevalue, arraysize);
-  
-  Serial.print("The mode/median is: ");
   mode = getMode(rangevalue, arraysize);
-  Serial.print(mode);
-  Serial.println();
+  
+  if(debug) {
+    Serial.print("The mode/median is: ");
+    Serial.print(mode);
+    Serial.println();
+  }
   
   // If We Are Within Range
   if (mode <= targetMax && mode >= targetMin) {    
-    Serial.println("We See You... ");    
     inRange = true;
   }
   else{
-    Serial.println("Nothing To See Here... ");
     inRange = false;
   }
 
+  // Turn Our Pin Off
   digitalWrite(configPin, LOW); 
-  Serial.println("Turning Sensor Off"); 
-  Serial.println("-------------\n"); 
+  if(debug) Serial.println("-------------\n"); 
   
 }
 
@@ -85,32 +76,35 @@ int getMode(int *x, int n) {
   while(i < (n - 1)) {
     prevCount = count;
     count = 0;
-    
     while(x[i] == x[i+1]) {
       count++;
       i++;
     }
-    
     if(count > prevCount & count > maxCount) {
       mode = x[i];
       maxCount = count;
       bimodal = 0;
     }
-    
     if(count == 0) {
       i++;
     }
-    
     if(count == maxCount) { //If the dataset has 2 or more modes.
       bimodal = 1;
     }
-    
     if(mode == 0 || bimodal == 1) { //Return the median if there is no mode.
       mode = x[(n/2)];
     }
-    
     return mode;
   }
-  
+}
+
+// Get Average Reading
+int getAvg(int x, int n) {
+  int total = 0;
+  for(int i = 0; i < n; i++) {
+    total += n;
+  }
+  total = total/n;
+  return total;
 }
 

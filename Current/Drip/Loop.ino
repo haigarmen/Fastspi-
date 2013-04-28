@@ -4,14 +4,23 @@
 
 void loop() {
   
-  // Test Sensor
-  if(millis() % 500 == 0) {
-    Serial.println("Let's Read Our Sensor...");
-    //readSensor();
+  // Check Our Timer
+  if(checkTimer() && !currentlyPlaying) {
+    
+    if(debug) Serial.println("Let's Read Our Sensor...");
+    
+    // Test Sensor
+    readSensor();
   }
   
   // Loop Through The Strands
-  //if(inRange) {
+  if(inRange) {
+    if(debug) Serial.println("Let's Light Those LEDs...");
+    
+    // Start the Playing
+    currentlyPlaying = true;
+  
+    // Start Our Animation
     loopStrands();
   //}
   

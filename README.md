@@ -1,15 +1,15 @@
-Fastspi-
+21 Umbrellas
 ========
-I am currently working from the library and sketches provided at   http://code.google.com/p/fastspi/
 
 
-This is an Arduino sketch that uses the fastspi library to drive the TM1809 chip and LEDs with an ultrasonic sensor
+This is an Arduino sketch that uses the FastSPI library to drive the TM1809 chip and LEDs with an ultrasonic sensor.
+It is designed for the interactive exhibit '21 Umbrellas' driven by 3rd Year Interaction Design students from Emily Carr University and installed at Pacific Centre Mall in Vancouver, opening April 30th, 2013.
 
-Currently I have the Fastspi library working to drive a strip of LEDs out or one arduino pin at a time. I have been able 
-to modify the sketch to alternate the drive between two pins with the use of a trigger switch
+http://www.ecuad.ca/
+http://www.pacificcentre.ca/
 
-I am trying to find the right ultra sonic sensor that will rech 25 feet, then incorporate that sensor as a trigger for
-my LED strand. 
 
-Eventually I would like to create a class from this library with instances for each pin, then call that up within my 
-sketch. 
+FastSPI   http://code.google.com/p/fastspi/
+
+Code done by Haig Armen, Robert Werner, and Jesse Scott
+
