@@ -6,12 +6,13 @@
  
  21 Umbrellas
  
- 
  */
-
 
 //---------------------------------------------------------------//
 // VARIABLES
+
+// Debug
+boolean debug = false;
 
 // INCLUDES  
 #include <FastSPI_LED.h>
@@ -27,22 +28,24 @@ int ledDebugPin = 13;
 const int pwPin = 5;
 int configPin = 3;
 
-long targetMin = 150;
-long targetMax = 200;
+/* SHOULD BE 130 & 230 */
+long targetMin = 130;
+long targetMax = 230;
 
-
-int arraysize = 9;
-int rangevalue[] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+int arraysize = 3;
+int rangevalue[] = {0, 0, 0};
 long pulse;
 int mode;
 
 boolean inRange = false;
+
 boolean currentlyPlaying = false;
+int timesToLoop = 4;
+int timesLooped[8] = {0,0,0,0,0,0,0,0};
+boolean strandPlaying[8] = {true, false, false, false, false, false, false, false};
 
 long sonarMillis = 0;
-long sonarTime = 0;
-long sonarInterval;
-
+long sonarInterval = 1000;
 
 // LEDS
 struct CRGB { 
@@ -63,7 +66,8 @@ unsigned long strandLength = 18;
 // Individual Timer For Each Strand
 unsigned long currentMillis[8] = {0,0,0,0,0,0,0,0}; 
 
-unsigned long stepTime[8] = {0,0,0,0,0,0,0,0}; //step time clock restarter strands 1-4
+// Step time clock restarts strands
+unsigned long stepTime[8] = {0,0,0,0,0,0,0,0}; 
 
 // Individual Timer For Each Strand
 int timer[8] = {0,0,0,0,0,0,0,0}; 
@@ -72,15 +76,8 @@ int timer[8] = {0,0,0,0,0,0,0,0};
 int speed[8] = {0,0,0,0,0,0,0,0};
 
 // Blink Min/Max
-int maX = 35;          
-int miN = 1;
-
-// Speed Array
-int blinkSpeed[101] = {
-  0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,
-  41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,67,68,69,70,71,72,73,74,75,76,78,79,
-  80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100
-};
+int maxSpeed = 55;          
+int minSpeed = 5;
 
 
 // LED POSITIONS

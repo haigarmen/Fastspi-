@@ -24,6 +24,9 @@ void setup() {
   pinMode(ledDebugPin, OUTPUT);
   pinMode(pwPin, INPUT);
   
+  // Interrupt
+  attachInterrupt(pwPin, readSensor, CHANGE);
+  
   // Let's Catch Our Breath
   delay(500);
 
