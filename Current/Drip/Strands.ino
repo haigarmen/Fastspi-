@@ -63,7 +63,6 @@ void lightStrand(int k, int i) {
     // If We Reach The End Of The Strand, Reset
     if (k >= endLED[i]){    
       timer[i] = speed[i];
-
     } 
     
     // Is Our Timer Ready To Switch ?? 

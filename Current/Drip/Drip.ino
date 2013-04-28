@@ -28,8 +28,9 @@ int ledDebugPin = 13;
 const int pwPin = 5;
 int configPin = 3;
 
-long targetMin = 30;
-long targetMax = 130;
+/* SHOULD BE 130 & 230 */
+long targetMin = 130;
+long targetMax = 230;
 
 int arraysize = 3;
 int rangevalue[] = {0, 0, 0};
